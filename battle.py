@@ -1,5 +1,6 @@
 from human import Human
 from ai import AI
+import random
 
 
 class Battle:
@@ -22,10 +23,23 @@ class Battle:
         self.human_turn()
 
     def ai_turn(self):
-        pass
+        self.show_gesture_options()
+        random_gesture = random.randint(0, len(self.ai.ai_gesture_list)-1)
+        print(self.ai.ai_gesture_list[random_gesture])
 
     def human_turn(self):
-       pass
+        self.show_gesture_options()
+        gesture_input = input("Choose your gesture!")
+        for gesture in self.human.gesture_list:
+            if gesture_input == gesture:
+                print(f"{gesture_input}")
+
+    def show_gesture_options(self):
+        gesture_index = 0
+        for each in self.human.gesture_list:
+            print(f"Your gesture option is {each}!")
+            print("Please type in your gesture!")
+            gesture_index += 1
 
     def winner(self):
         print("The winner of Rock Paper Scissors Lizard Spook is !")
