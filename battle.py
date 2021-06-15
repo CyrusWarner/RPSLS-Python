@@ -1,45 +1,46 @@
 from human import Human
 from ai import AI
-import random
 
 
 class Battle:
     def __init__(self):
-        self.human = Human()
-        self.ai = AI()
+        self.player_one = Human()
+        self.player_two = None
 
     def run_game(self):
         self.welcome()
 
-        self.battle()
+        self.choose_game_mode()
+
+        self.player_one_gesture()
+
+        self.player_two_ai_gesture()
 
         self.winner()
 
     def welcome(self):
-        print("Welcome to Rock Paper Scissors Lizard Spook!")
+        print("Welcome to Rock Paper Scissors Lizard Spook!\n")
+        print("You have the choice between Rock, Paper, Scissors, Lizard or Spook! After choosing the gesture you will either go against an ai or another player!\n")
+        # determine winner of round
 
-    def battle(self):
-        self.ai_turn()
-        self.human_turn()
+    def choose_game_mode(self):
+        print("How many players? Max players is two")
+        user_response = input()
+        if user_response == 2:
+            self.player_two = Human()
+        else:
+            self.player_two = AI()
 
-    def ai_turn(self):
-        self.show_gesture_options()
-        random_gesture = random.randint(0, len(self.ai.ai_gesture_list)-1)
-        print(self.ai.ai_gesture_list[random_gesture])
+    def player_one_gesture(self):
+        self.player_one.show_gesture_options()
+        self.player_one.choose_player_gesture()
 
-    def human_turn(self):
-        self.show_gesture_options()
-        gesture_input = input("Choose your gesture!")
-        for gesture in self.human.gesture_list:
-            if gesture_input == gesture:
-                print(f"{gesture_input}")
+    def player_two_ai_gesture(self):
+        self.player_two.ai_choose_gesture()
 
-    def show_gesture_options(self):
-        gesture_index = 0
-        for each in self.human.gesture_list:
-            print(f"Your gesture option is {each}!")
-            gesture_index += 1
-        print("Please type in your gesture!")
+    def game(self):
+        if self.player_one_gesture == self.player_two_ai_gesture():
+            print("Tie!")
 
     def winner(self):
         print("The winner of Rock Paper Scissors Lizard Spook is !")
