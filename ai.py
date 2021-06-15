@@ -7,3 +7,10 @@ class AI(Player):
 
     def set_ai_name(self):
         self.name = "terminator"
+
+    def ai_gesture_options(self):
+        rock = "Rock"
+        scissors = "Scissors"
+        paper = "Paper"
+        lizard = "Lizard"
+        spock = "Spock"

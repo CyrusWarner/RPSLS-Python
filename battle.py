@@ -18,7 +18,8 @@ class Battle:
         print("Welcome to Rock Paper Scissors Lizard Spook!")
 
     def battle(self):
-        
+        self.ai_turn()
+        self.human_turn()
 
     def ai_turn(self):
         pass
