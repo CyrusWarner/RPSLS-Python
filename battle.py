@@ -38,8 +38,8 @@ class Battle:
         gesture_index = 0
         for each in self.human.gesture_list:
             print(f"Your gesture option is {each}!")
-            print("Please type in your gesture!")
             gesture_index += 1
+        print("Please type in your gesture!")
 
     def winner(self):
         print("The winner of Rock Paper Scissors Lizard Spook is !")
