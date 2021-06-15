@@ -3,5 +3,7 @@ from player import Player
 
 class AI(Player):
     def __init__(self):
-        self.ai_name = "Terminator"
         super().__init__()
+
+    def set_ai_name(self):
+        self.name = "terminator"

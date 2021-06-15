@@ -4,14 +4,27 @@ from ai import AI
 
 class Battle:
     def __init__(self):
-        pass
+        self.human = Human()
+        self.ai = AI()
+
+    def run_game(self):
+        self.welcome()
+
+        self.battle()
+
+        self.winner()
+
+    def welcome(self):
+        print("Welcome to Rock Paper Scissors Lizard Spook!")
+
+    def battle(self):
+        
 
     def ai_turn(self):
         pass
 
     def human_turn(self):
-        name_input = input("Please enter your name")
-        Human(name_input)
+       pass
 
     def winner(self):
         print("The winner of Rock Paper Scissors Lizard Spook is !")
