@@ -4,10 +4,12 @@ from ai import AI
 
 class Battle:
     def __init__(self):
+
         self.player_one = Human()
         self.player_two = None
 
     def run_game(self):
+
         self.welcome()
 
         self.choose_game_mode()
@@ -20,14 +22,14 @@ class Battle:
 
         self.winner()
 
-
-
     def welcome(self):
+
         print("\nWelcome to Rock Paper Scissors Lizard Spook!\n")
         print("You have the choice between Rock, Paper, Scissors, Lizard or Spook! After choosing the gesture you will either go against an ai or another player!\n")
         # determine winner of round
 
     def choose_game_mode(self):
+
         print("How many players? Max players is two")
         user_response = int(input())
         if user_response == 2:
@@ -36,18 +38,23 @@ class Battle:
             self.player_two = AI()
 
     def player_one_gesture(self):
+
         self.player_one.show_gesture_options()
         self.player_one.choose_player_gesture()
 
     def player_two_gesture(self):
+
         self.player_two.choose_player_gesture()
 
     def game(self):
+
         while self.player_one.score < 3 and self.player_two.score < 3:
             if self.player_one.score == 3:
                 self.winner()
+
             if self.player_two.score == 3:
                 self.winner()
+
             if self.player_one.chosen_gesture.lower() == self.player_two.chosen_gesture.lower():
                 print("Tie!")
 
@@ -147,9 +154,11 @@ class Battle:
                 self.player_two_gesture()
 
     def winner(self):
+
         if self.player_one.score == 3:
-            print(f"The winner of Rock Paper Scissors Lizard Spook is {self.player_one.name}!")
+            print(f"The winner is {self.player_one.name}!")
+
         if self.player_two.score == 3:
-            print(f"The winner of Rock Paper Scissors Lizard Spook is {self.player_two.name}!")
+            print(f"The winner is {self.player_two.name}!")
 
 
