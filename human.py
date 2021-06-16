@@ -9,8 +9,7 @@ class Human(Player):
         self.set_name()
 
     def set_name(self):
-        self.name = input("Please enter player ones name.")
-        print(self.name)
+        self.name = input("\nPlease enter player name.\n")
 
     def show_gesture_options(self):
         gesture_index = 0
@@ -19,9 +18,8 @@ class Human(Player):
             gesture_index += 1
 
     def choose_player_gesture(self):
-        gesture_input = input("Choose your gesture!")
+        gesture_input = input(f"{self.name} choose your gesture!")
         for gesture in self.gesture_list:
             if gesture_input.lower() == gesture.lower():
-                print(f"You chose {gesture}!\n")
                 self.chosen_gesture = gesture
 
