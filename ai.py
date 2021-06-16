@@ -4,7 +4,6 @@ import random
 
 class AI(Player):
     def __init__(self):
-        self.ai_gesture_list = ["Rock", "Scissors", "Paper", "Lizard", "Spock"]
         self.chosen_gesture = " "
         super().__init__()
         self.set_ai_name()
@@ -13,6 +12,6 @@ class AI(Player):
         self.name = "terminator"
 
     def choose_player_gesture(self):
-        random_gesture = random.randint(0, len(self.ai_gesture_list) - 1)
-        ai_gesture = self.ai_gesture_list[random_gesture]
+        random_gesture = random.randint(0, len(self.gesture_list) - 1)
+        ai_gesture = self.gesture_list[random_gesture]
         self.chosen_gesture = ai_gesture
