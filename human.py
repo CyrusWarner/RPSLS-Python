@@ -4,6 +4,7 @@ from player import Player
 class Human(Player):
     def __init__(self):
         self.gesture_list = ["Rock", "Scissors", "Paper", "Lizard", "Spock"]
+        self.chosen_gesture = " "
         super().__init__()
         self.set_name()
 
@@ -22,4 +23,5 @@ class Human(Player):
         for gesture in self.gesture_list:
             if gesture_input.lower() == gesture.lower():
                 print(f"You chose {gesture}!\n")
+                self.chosen_gesture = gesture
 

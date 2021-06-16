@@ -16,6 +16,8 @@ class Battle:
 
         self.player_two_ai_gesture()
 
+        self.game()
+
         self.winner()
 
     def welcome(self):
@@ -39,8 +41,11 @@ class Battle:
         self.player_two.ai_choose_gesture()
 
     def game(self):
-        if self.player_one_gesture == self.player_two_ai_gesture():
+        if self.player_one.chosen_gesture.lower() == self.player_two.ai_chosen_gesture.lower():
             print("Tie!")
+        if (self.player_one.chosen_gesture.lower() == "rock") & (self.player_two.ai_chosen_gesture.lower() == "scissors" or self.player_two.ai_chosen_gesture.lower() == "lizard"):
+            print(f"{self.player_one.name} crushes {self.player_two.ai_chosen_gesture}")
+            self.player_one.score += 1
 
     def winner(self):
         print("The winner of Rock Paper Scissors Lizard Spook is !")
