@@ -31,18 +31,19 @@ class Battle:
         # determine winner of round
 
     def choose_game_mode(self):
-
-        print("How many players? Max players is two")
-        user_response = int(input())
+        user_response = input("How many players? Max players is two")
+        try:
+            user_response = int(user_response)
+        except ValueError:
+            print("Not an integer")
         if user_response == 2:
             self.player_one = Human()
             self.player_two = Human()
-        elif user_response != 2 and user_response != 1:
-            print("Invalid input\n")
-            self.choose_game_mode()
         elif user_response == 1:
             self.player_one = Human()
             self.player_two = AI()
+        else:
+            self.choose_game_mode()
 
     def player_one_gesture(self):
 
