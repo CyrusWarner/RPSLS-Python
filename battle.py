@@ -5,7 +5,7 @@ from ai import AI
 class Battle:
     def __init__(self):
 
-        self.player_one = Human()
+        self.player_one = None
         self.player_two = None
 
     def run_game(self):
@@ -22,6 +22,8 @@ class Battle:
 
         self.winner()
 
+        self.play_again()
+
     def welcome(self):
 
         print("\nWelcome to Rock Paper Scissors Lizard Spook!\n")
@@ -33,8 +35,10 @@ class Battle:
         print("How many players? Max players is two")
         user_response = int(input())
         if user_response == 2:
+            self.player_one = Human()
             self.player_two = Human()
         else:
+            self.player_one = Human()
             self.player_two = AI()
 
     def player_one_gesture(self):
@@ -160,5 +164,15 @@ class Battle:
 
         if self.player_two.score == 3:
             print(f"The winner is {self.player_two.name}!")
+
+    def play_again(self):
+        again = input("Would you like to play again? Please type in yes or no.")
+        if again.lower() == "yes":
+            self.run_game()
+        elif again.lower() == "no":
+            print("I hope you enjoyed!")
+        elif again.lower != "yes" and "no":
+            print("Invalid input")
+            self.play_again()
 
 
