@@ -37,7 +37,10 @@ class Battle:
         if user_response == 2:
             self.player_one = Human()
             self.player_two = Human()
-        else:
+        elif user_response != 2 and user_response != 1:
+            print("Invalid input\n")
+            self.choose_game_mode()
+        elif user_response == 1:
             self.player_one = Human()
             self.player_two = AI()
 
@@ -170,7 +173,7 @@ class Battle:
         if again.lower() == "yes":
             self.run_game()
         elif again.lower() == "no":
-            print("I hope you enjoyed!")
+            print("Game Over!")
         elif again.lower != "yes" and "no":
             print("Invalid input")
             self.play_again()
