@@ -1,4 +1,4 @@
-# Rock-Paper-Scissors-Lizard-Spock python
+# Rock-Paper-Scissors-Lizard-Spock Python
 ## Implementation of a RPSLS console application to get familiar with Python
 
 Creates a RPSLS console application allowing a user to play three rounds and show a winner for the user
